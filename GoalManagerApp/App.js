@@ -4,6 +4,7 @@ import { useState } from 'react';
 export default function App() {
   const [enteredGoalText, setEnteredGoalText] = useState('');
   const [goalsList, setGoalsList] = useState([]);
+    const totalGoals = goalsList.length;
 
   function handleTextInput(textEntered) {
     setEnteredGoalText(textEntered);
@@ -42,6 +43,11 @@ export default function App() {
 
   return (
     <View style={styles.container}>
+          <View style={styles.header}>
+        <Text style={styles.headerText}>Goal Manager</Text>
+        <Text style={styles.subText}>Total Goals: {totalGoals}</Text>
+      </View>
+
       <View style={styles.inputContainer}>
         <TextInput
           style={styles.textInput}
@@ -88,6 +94,19 @@ export default function App() {
   );
 }
 const styles = StyleSheet.create({
+    header: {
+    marginBottom: 20,
+    alignItems: 'center',
+  },
+  headerText: {
+    fontSize: 24,
+    fontWeight: 'bold',
+  },
+  subText: {
+    fontSize: 14,
+    color: '#555',
+  },
+
   container: {
     flex: 1,
     paddingTop: 50,
